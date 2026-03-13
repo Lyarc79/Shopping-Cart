@@ -1,3 +1,28 @@
+import { useState, useEffect } from "react";
+import ProductCard from "../components/ProductCard";
+import styles from "./Shop.module.css";
+
 export default function Shop() {
-  return <h1>I am the Shop page</h1>;
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const response = await fetch("https://fakestoreapi.com/products");
+      const data = await response.json();
+      setProducts(data);
+      setIsLoading(false);
+    }
+    fetchProducts();
+  }, []);
+
+  if (isLoading) return <h2>Loading products...</h2>;
+
+  return (
+    <div className={styles.shopGrid}>
+      {products.map((product) => {
+        return <ProductCard key={product.id} product={product} />;
+      })}
+    </div>
+  );
 }
