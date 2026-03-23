@@ -1,3 +1,22 @@
+import styles from "./Home.module.css";
+
 export default function Home() {
-  return <h1>I am the Home page</h1>;
+  return (
+    <div className={styles.mainWrapper}>
+      <div className={styles.leftPanel}>
+        <h1>Shopping Cart</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa iste
+          neque, saepe nemo nihil corrupti, minima facere maiores autem
+          similique consequatur, quaerat deserunt maxime veniam at. Excepturi ab
+          inventore quaerat?
+        </p>
+        <button>Shop Now</button>
+      </div>
+      <img
+        src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=forma&fit=crop&q=80&w=1000"
+        alt="Placeholder img"
+      />
+    </div>
+  );
 }
