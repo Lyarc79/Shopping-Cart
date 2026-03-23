@@ -31,11 +31,32 @@ function App() {
     }
   };
 
+  const handleRemoveFromCart = (productId) => {
+    setCartItem(cartItem.filter((item) => item.id !== productId));
+  };
+
+  const handleUpdateQuantity = (productId, newQuantity) => {
+    setCartItem(
+      cartItem.map((item) => {
+        if (item.id === productId) {
+          return { ...item, quantity: newQuantity };
+        }
+        return item;
+      }),
+    );
+  };
+
   return (
     <>
-      <h1>Navigation Bar Placeholder</h1>
       <Navbar totalItems={totalItems} />
-      <Outlet context={{ cartItem, handleAddToCart }} />
+      <Outlet
+        context={{
+          cartItem,
+          handleAddToCart,
+          handleRemoveFromCart,
+          handleUpdateQuantity,
+        }}
+      />
     </>
   );
 }
