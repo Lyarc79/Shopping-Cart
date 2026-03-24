@@ -17,16 +17,29 @@ export default function ProductCard({ product }) {
 
   return (
     <div className={styles.card}>
-      <img src={product.image} />
-      <p>{product.title}</p>
-      <input
-        type="number"
-        value={quantity}
-        onChange={(e) => setQuantity(Number(e.target.value))}
-      />
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-      <button onClick={() => handleAddToCart(product, quantity)}>
+      <div className={styles.imgContainer}>
+        <img src={product.image} />
+      </div>
+      <p className={styles.productTitle}>{product.title}</p>
+      <div className={styles.quantityContainer}>
+        <p>${product.price}</p>
+        <input
+          type="number"
+          value={quantity}
+          onChange={(e) => setQuantity(Number(e.target.value))}
+        />
+        <button className={styles.stepBtn} onClick={increment}>
+          +
+        </button>
+        <button className={styles.stepBtn} onClick={decrement}>
+          -
+        </button>
+      </div>
+
+      <button
+        className={styles.addToCart}
+        onClick={() => handleAddToCart(product, quantity)}
+      >
         Add to Cart
       </button>
     </div>
