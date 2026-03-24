@@ -1,4 +1,38 @@
 .cart {
   display: flex;
   flex-direction: column;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.cartWrapper h2 {
+  text-align: center;
+}
+
+.cartHeading {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 2px solid #333;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.colItem {
+  flex: 3;
+}
+.colPrice {
+  flex: 1;
+  text-align: center;
+}
+.colQty {
+  flex: 1;
+  text-align: center;
+}
+.colTotal {
+  flex: 1;
+  text-align: right;
 }

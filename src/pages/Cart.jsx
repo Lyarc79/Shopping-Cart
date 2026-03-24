@@ -3,7 +3,7 @@ import CartItem from "../components/CartItem";
 import styles from "./Cart.module.css";
 
 export default function Cart() {
-  const { cartItem, handleRemoveFromCart, handleUpdateQuantity } =
+  const { cartItem, handleRemoveFromCart, handleUpdateQuantity, totalItems } =
     useOutletContext();
 
   const grandTotal = cartItem.reduce(
@@ -16,18 +16,25 @@ export default function Cart() {
       {cartItem.length === 0 ? (
         <h2>Your cart is empty!</h2>
       ) : (
-        cartItem.map((item) => {
-          return (
+        <div className={styles.cartWrapper}>
+          <h2>{`Your Cart (${totalItems} items)`}</h2>
+          <div className={styles.cartHeading}>
+            <p className={styles.colItem}>Item</p>
+            <p className={styles.colPrice}>Price</p>
+            <p className={styles.colQty}> Quantity</p>
+            <p className={styles.colTotal}>Total</p>
+          </div>
+          {cartItem.map((item) => (
             <CartItem
               key={item.id}
               item={item}
               onRemove={handleRemoveFromCart}
               onUpdate={handleUpdateQuantity}
             />
-          );
-        })
+          ))}
+        </div>
       )}
-      <h3>Total: {grandTotal.toFixed(2)}</h3>
+      <h3>Total: ${grandTotal.toFixed(2)}</h3>
     </div>
   );
 }
