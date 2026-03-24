@@ -7,7 +7,7 @@ const links = [
   { name: "Cart", path: "/cart" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ totalItems }) {
   return (
     <nav className={styles.navbar}>
       {links.map((link) => (
@@ -19,7 +19,10 @@ export default function Navbar() {
             isActive ? `${styles.link} ${styles.activeLink}` : styles.link
           }
         >
-          {link.name}
+          {link.name}{" "}
+          {link.name === "Cart" && totalItems > 0 && (
+            <span className={styles.cartBadge}>{totalItems}</span>
+          )}
         </NavLink>
       ))}
     </nav>

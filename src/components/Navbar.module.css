@@ -2,7 +2,12 @@
   display: flex;
   background-color: #242424;
   padding: 20px;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 50px;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 9999;
 }
 
 .link {
@@ -17,4 +22,15 @@
 
 .activeLink {
   font-weight: bold;
+}
+
+.cartBadge {
+  display: inline-block;
+  line-height: 20px;
+  text-align: center;
+  background-color: white;
+  color: black;
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: 50%;
 }
