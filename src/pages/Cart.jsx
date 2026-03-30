@@ -34,7 +34,9 @@ export default function Cart() {
           ))}
         </div>
       )}
-      <h3>Total: ${grandTotal.toFixed(2)}</h3>
+      <h3 className={styles.grandTotal}>
+        Grand Total: <span>${grandTotal.toFixed(2)}</span>
+      </h3>
     </div>
   );
 }

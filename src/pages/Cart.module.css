@@ -36,3 +36,12 @@
   flex: 1;
   text-align: right;
 }
+
+.grandTotal {
+  text-align: right;
+  font-weight: 300;
+}
+
+.grandTotal span {
+  font-weight: bold;
+}
