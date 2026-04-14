@@ -39,3 +39,11 @@ test("minus button should be disabled when quantity is 1", () => {
   const minusButton = screen.getByText("-");
   expect(minusButton).toBeDisabled();
 });
+
+test("clicking remove button deletes the item from the cart", async () => {
+  const onRemoveMock = vi.fn();
+  render(<CartItem item={mockItem} onRemove={onRemoveMock} />);
+  const removeBtn = screen.getByRole("button", { name: /remove/i });
+  fireEvent.click(removeBtn);
+  expect(onRemoveMock).toHaveBeenCalledWith(1);
+});
