@@ -21,7 +21,9 @@ export default function Navbar({ totalItems }) {
         >
           {link.name}{" "}
           {link.name === "Cart" && totalItems > 0 && (
-            <span className={styles.cartBadge}>{totalItems}</span>
+            <span className={styles.cartBadge} data-testid="cart-badge">
+              {totalItems}
+            </span>
           )}
         </NavLink>
       ))}
