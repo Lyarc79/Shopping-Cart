@@ -1,4 +1,5 @@
 import styles from "./Home.module.css";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -11,7 +12,9 @@ export default function Home() {
           similique consequatur, quaerat deserunt maxime veniam at. Excepturi ab
           inventore quaerat?
         </p>
-        <button>Shop Now</button>
+        <Link to="/shop" className={styles.shopNowButton}>
+          Shop Now
+        </Link>
       </div>
       <img
         src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=forma&fit=crop&q=80&w=1000"
