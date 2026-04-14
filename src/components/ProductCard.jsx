@@ -1,11 +1,9 @@
-import { useOutletContext } from "react-router-dom";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./ProductCard.module.css";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, handleAddToCart }) {
   const [quantity, setQuantity] = useState(1);
-  const { handleAddToCart } = useOutletContext();
 
   const increment = () => {
     setQuantity((q) => q + 1);
