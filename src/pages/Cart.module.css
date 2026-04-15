@@ -45,3 +45,7 @@
 .grandTotal span {
   font-weight: bold;
 }
+
+.emptyCartHeader {
+  text-align: center;
+}

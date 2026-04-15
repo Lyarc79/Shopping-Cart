@@ -14,7 +14,7 @@ export default function Cart() {
   return (
     <div className={styles.cart}>
       {cartItem.length === 0 ? (
-        <h2>Your cart is empty!</h2>
+        <h2 className={styles.emptyCartHeader}>Your cart is empty!</h2>
       ) : (
         <div className={styles.cartWrapper}>
           <h2>{`Your Cart (${totalItems} items)`}</h2>
@@ -32,11 +32,11 @@ export default function Cart() {
               onUpdate={handleUpdateQuantity}
             />
           ))}
+          <h3 className={styles.grandTotal}>
+            Grand Total: <span>${grandTotal.toFixed(2)}</span>
+          </h3>
         </div>
       )}
-      <h3 className={styles.grandTotal}>
-        Grand Total: <span>${grandTotal.toFixed(2)}</span>
-      </h3>
     </div>
   );
 }
